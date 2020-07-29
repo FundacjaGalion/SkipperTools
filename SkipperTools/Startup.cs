@@ -29,7 +29,7 @@ namespace SkipperTools
             services.ConfigureApplicationCookie(config =>
            {
                config.Cookie.Name = "SkipperToolsCookie";
-               config.LoginPath = "/Home/Login";
+               config.LoginPath = "/Users/Login";
 
            });
 

@@ -15,8 +15,6 @@ namespace SkipperTools.Controllers
             _signInManager = signInManager;
         }
 
-
-
         [HttpGet]
         public IActionResult Login()
         {
@@ -27,7 +25,6 @@ namespace SkipperTools.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(string username, string password)
         {
-
             var user = await _userManager.FindByNameAsync(username);
 
             if (user != null)
@@ -35,24 +32,28 @@ namespace SkipperTools.Controllers
                 var signInResult = await _signInManager.PasswordSignInAsync(user, password, false, false);
                 if (signInResult.Succeeded)
                 {
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index", "Home");
                 }
             }
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
 
         public IActionResult Logout()
         {
             _signInManager.SignOutAsync();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("LoggedOut", "Users");
+        }
+
+        public IActionResult Loggedout()
+        {
+            return View();
         }
 
         [HttpGet]
         public IActionResult Register()
         {
-
             return View();
         }
 
@@ -72,18 +73,17 @@ namespace SkipperTools.Controllers
                 var signInResult = await _signInManager.PasswordSignInAsync(user, password, false, false);
                 if (signInResult.Succeeded)
                 {
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
-                    return RedirectToAction("Error");
+                    return RedirectToAction("Error", "Home");
                 }
             }
             else
             {
-                return RedirectToAction("Error");
+                return RedirectToAction("Error", "Home");
             }
-
         }
     }
 }

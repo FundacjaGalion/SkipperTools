@@ -48,7 +48,7 @@
                     <a class="nav-link text-dark" href="/Home/Index" title="Manage">Hello @User.Identity.Name!</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/Home/Logout" class="form-inline" method="post">Logout</a>
+                    <a href="/Users/Logout" class="form-inline" method="post">Logout</a>
                 </li>
             }
             else
@@ -126,12 +126,20 @@
                 }
                 else
                 {
-                    <li>
-                        <a href="javascript:;">
-                            <i class="fa fa-question"></i> Help
-                        </a>
-                    </li>
+
                 }
+
+                <li>
+                    <a class="nav-link" href="/Compares/Index">
+                        <i class="fa fa-balance-scale"></i> Comparer
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">
+                        <i class="fa fa-question"></i> Help
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
