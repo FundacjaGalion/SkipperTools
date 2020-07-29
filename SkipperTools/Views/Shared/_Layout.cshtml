@@ -1,0 +1,172 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+
+<!DOCTYPE html>
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <title>Skipper Calculator</title>
+
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta content="Skipper ToolKit" name="description" />
+    <meta content="Fundacja Galion" name="author" />
+
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.15.3/dist/sweetalert2.min.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <link href="~/assets/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/assets/plugins/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/assets/plugins/font-awesome/5.3/css/all.css" rel="stylesheet" />
+    <link href="~/assets/plugins/animate/animate.min.css" rel="stylesheet" />
+    <link href="~/assets/css/default/style.css" rel="stylesheet" />
+    <link href="~/assets/css/default/style-responsive.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div id="header" class="header navbar-default">
+        <div class="navbar-header">
+            <a href="index.html" class="navbar-brand">
+
+                <b>Fundacja Galion</b> Skipper ToolKit
+            </a>
+
+        </div>
+        <ul class="navbar-nav navbar-right">
+
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="/Home/Index" title="Manage">Hello @User.Identity.Name!</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Home/Logout" class="form-inline" method="post">Logout</a>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="/Users/Register">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="/Users/Login">Login</a>
+                </li>
+            }
+
+        </ul>
+    </div>
+    <div id="sidebar" class="sidebar">
+        <div data-scrollbar="true" data-height="100%">
+
+            <ul class="nav">
+                <li class="nav-header">Navigation</li>
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <li>
+                        <a class="nav-link" href="/Home/Index">
+                            <i class="fa fa-home"></i> Home
+                        </a>
+                    </li>
+
+                    <li class="has-sub">
+                        <a href="javascript:;">
+                            <b class="caret"></b>
+                            <i class="fa fa-compass"></i>
+                            <span>My Voyages</span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li><a class="nav-link" href="/Voyages/Index">All</a></li>
+                            <li><a class="nav-link" href="/Voyages/Last">Last</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="nav-link" href="/CrewMembers/Index">
+                            <i class="fa fa-people-carry"></i> Crew
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="nav-link" href="/Wallets/Index">
+                            <i class="fa fa-wallet"></i> Wallet
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="nav-link" href="/Vessels/Index">
+                            <i class="fa fa-ship"></i> Vessels
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="nav-link" href="/Users/Settings">
+                            <i class="fa fa-cog"></i> Settings
+                        </a>
+                    </li>
+
+                    <li class="has-sub">
+                        <a href="javascript:;">
+                            <b class="caret"></b>
+                            <i class="fa fa-male"></i>
+                            <span>User</span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li><a class="nav-link" href="/Users/Login">Login</a></li>
+                            <li><a class="nav-link" href="/Users/Logout">Log Out</a></li>
+                        </ul>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-question"></i> Help
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="sidebar-bg"></div>
+
+    <div id="content" class="content">
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+
+    </div>
+
+
+    <script src="~/assets/plugins/jquery/jquery-3.3.1.min.js"></script>
+    <script src="~/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="~/assets/plugins/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="~/assets/plugins/js-cookie/js.cookie.js"></script>
+    <script src="~/assets/js/theme/default.min.js"></script>
+    <script src="~/assets/js/apps.min.js"></script>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.15.3/dist/sweetalert2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            App.init();
+        });
+    </script>
+    @RenderSection("Scripts", required: false)
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+﻿<br />
+<div class="container row p-0 m-0">
+    <div class="col-6">
+        <h2 class="text-info">Voyages</h2>
+    </div>
+    <div class="col-6 offset-3">
+        <a asp-action="Upsert" asp-controller="Voyages" class="btn btn-info form-control text-white">
+            Add New Voyage
+        </a>
+
+    </div>
+    <div class="col-12 border p-3">
+        <table id="#DT_load_voyages" class="table table-striped table table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Area Name</th>
+                    <th>Is Ended?</th>
+                    <th></th>
+                    
+
+                </tr>
+
+            </thead>
+        </table>
+
+    </div>
+</div>
+@section Scripts{
+    <script src="~/js/voyage.js"></script>
+}

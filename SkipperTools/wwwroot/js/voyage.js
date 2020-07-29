@@ -1,0 +1,70 @@
+﻿var datatable;
+
+$(document).ready(function () {
+    loadDataTable();
+});
+
+function loadDataTable() {
+    dataTable = $('#DT_load_voyages').dataTable({
+        "ajax": {
+            "url": "/Voyages/GetAll/",
+            "type": "GET",
+            "datatype": "json"
+        },
+        "columns": [
+            { "data": "name", "width": "20%" },
+            { "data": "startdate", "width": "20%" },
+            { "data": "enddate", "width": "20%" },
+            { "data": "area", "width": "20%" },
+            { "data": "isended", "width": "20%" },
+            {
+                "data": "id",
+                "render": function (data) {
+                    return `<div class="text-center">
+                    <a href="/Voyages/Create?id=${data}" class='btn btn-success text white' style style='cursor:pointer; width:70px;'>
+                        Edit
+                        </a>
+                        &nbsp;
+                        <a class='btn btn-danger text-white' style='cursor:pointer; width:70px;'
+                            onclick=Delete('/Voyages/Delete?id=${data}')>
+                            Delete
+                        </a>
+                        </div>`;
+                }, "width": "40%"
+            },
+        ],
+
+        "language": {
+            "emptyTable": "no data found"
+        },
+        "width": "100%"
+    });
+};
+
+function Delete(url) {
+    swal.fire({
+        title: "Are You sure?",
+        text: "Once deleted, You will not be able to recover",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true
+    }).then((willDelete) => {
+        if (willDelete) {
+            $.ajax({
+                type: "DELETE",
+                url: url,
+                success: function (data) {
+                    if (data.success) {
+                        toastr.success(data.message);
+                        dataTable.ajax.reload();
+                    }
+                    else {
+                        toastr.error(data.message);
+                    }
+                }
+            });
+        }
+    });
+}
+
+
