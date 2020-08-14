@@ -32,118 +32,125 @@
 </head>
 
 <body>
-    <div id="header" class="header navbar-default">
-        <div class="navbar-header">
-            <a href="index.html" class="navbar-brand">
+    <div id="page-container" class="fade page-sidebar-fixed page-header-fixed show has-scroll">
+        <div id="header" class="header navbar-default">
+            <div class="navbar-header">
+                <a href="index.html" class="navbar-brand">
 
-                <b>Fundacja Galion</b> Skipper ToolKit
-            </a>
+                    <b>Fundacja Galion</b> Skipper ToolKit
+                </a>
 
-        </div>
-        <ul class="navbar-nav navbar-right">
+            </div>
+            <ul class="navbar-nav navbar-right">
 
-            @if (SignInManager.IsSignedIn(User))
-            {
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="/Home/Index" title="Manage">Hello @User.Identity.Name!</a>
-                </li>
-                <li class="nav-item">
-                    <a href="/Users/Logout" class="form-inline" method="post">Logout</a>
-                </li>
-            }
-            else
-            {
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="/Users/Register">Register</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="/Users/Login">Login</a>
-                </li>
-            }
-
-        </ul>
-    </div>
-    <div id="sidebar" class="sidebar">
-        <div data-scrollbar="true" data-height="100%">
-
-            <ul class="nav">
-                <li class="nav-header">Navigation</li>
                 @if (SignInManager.IsSignedIn(User))
                 {
-                    <li>
-                        <a class="nav-link" href="/Home/Index">
-                            <i class="fa fa-home"></i> Home
-                        </a>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="/Home/Index" title="Manage">Hello @User.Identity.Name!</a>
                     </li>
-
-                    <li class="has-sub">
-                        <a href="javascript:;">
-                            <b class="caret"></b>
-                            <i class="fa fa-compass"></i>
-                            <span>My Voyages</span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li><a class="nav-link" href="/Voyages/Index">All</a></li>
-                            <li><a class="nav-link" href="/Voyages/Last">Last</a></li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a class="nav-link" href="/CrewMembers/Index">
-                            <i class="fa fa-people-carry"></i> Crew
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="nav-link" href="/Wallets/Index">
-                            <i class="fa fa-wallet"></i> Wallet
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="nav-link" href="/Vessels/Index">
-                            <i class="fa fa-ship"></i> Vessels
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="nav-link" href="/Users/Settings">
-                            <i class="fa fa-cog"></i> Settings
-                        </a>
-                    </li>
-
-                    <li class="has-sub">
-                        <a href="javascript:;">
-                            <b class="caret"></b>
-                            <i class="fa fa-male"></i>
-                            <span>User</span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li><a class="nav-link" href="/Users/Login">Login</a></li>
-                            <li><a class="nav-link" href="/Users/Logout">Log Out</a></li>
-                        </ul>
+                    <li class="nav-item">
+                        <a href="/Users/Logout" class="form-inline" method="post">Logout</a>
                     </li>
                 }
                 else
                 {
-
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="/Users/Register">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="/Users/Login">Login</a>
+                    </li>
                 }
 
-                <li>
-                    <a class="nav-link" href="/Compares/Index">
-                        <i class="fa fa-balance-scale"></i> Comparer
-                    </a>
-                </li>
-
-                <li>
-                    <a href="javascript:;">
-                        <i class="fa fa-question"></i> Help
-                    </a>
-                </li>
             </ul>
         </div>
+        <div id="sidebar" class="sidebar">
+            <div data-scrollbar="true" data-height="100%">
+
+                <ul class="nav">
+                    <li class="nav-header">Navigation</li>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <li>
+                            <a class="nav-link" href="/Home/Index">
+                                <i class="fa fa-home"></i> Home
+                            </a>
+                        </li>
+
+                        <li class="has-sub">
+                            <a href="javascript:;">
+                                <b class="caret"></b>
+                                <i class="fa fa-compass"></i>
+                                <span>My Voyages</span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li><a class="nav-link" href="/Voyages/Index">All</a></li>
+                                <li><a class="nav-link" href="/Voyages/Last">Last</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a class="nav-link" href="/CrewMembers/Index">
+                                <i class="fa fa-people-carry"></i> Crew
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="nav-link" href="/Wallets/Index">
+                                <i class="fa fa-wallet"></i> Wallet
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="nav-link" href="/Vessels/Index">
+                                <i class="fa fa-ship"></i> Vessels
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="nav-link" href="/Users/Settings">
+                                <i class="fa fa-cog"></i> Settings
+                            </a>
+                        </li>
+
+                        <li class="has-sub">
+                            <a href="javascript:;">
+                                <b class="caret"></b>
+                                <i class="fa fa-male"></i>
+                                <span>User</span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li><a class="nav-link" href="/Users/Login">Login</a></li>
+                                <li><a class="nav-link" href="/Users/Logout">Log Out</a></li>
+                            </ul>
+                        </li>
+                    }
+                    else
+                    {
+
+                    }
+
+                    <li>
+                        <a class="nav-link" href="/Compares/Index">
+                            <i class="fa fa-balance-scale"></i> Comparer
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-question"></i> Help
+                        </a>
+                    </li>
+                    @*<li>
+                            <a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify">
+                                <i class="fa fa-angle-double-left"></i> <span>Collapse</span>
+                            </a>
+                        </li>*@
+                </ul>
+            </div>
+        </div>
+        <div class="sidebar-bg"></div>
     </div>
-    <div class="sidebar-bg"></div>
 
     <div id="content" class="content">
         <div class="container">

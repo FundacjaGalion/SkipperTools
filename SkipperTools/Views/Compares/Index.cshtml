@@ -1,71 +1,71 @@
-﻿<table id="compareTable" class="table table-bordered">
+﻿<table id="compareTable" class="table table-bordered table-comparer">
     <tr>
         <td>
-            <div class="col-12 form-inline">
+            <div id="yacht1" class="col-12 form-inline form-group">
                 <div class="form-inline">
                     <div class="col-6">
-                        <div class="form-group form-inline">
+                        <div class=" form-inline">
                             <label class="col-6">Yacht name</label>
                             <input type="text" class="form-control col-6" placeholder="Enter yacht name" />
                         </div>
 
-                        <div class="form-group form-inline">
+                        <div class=" form-inline">
                             <label class="col-6">How many days?</label>
-                            <input type="text" class="form-control col-6" placeholder=" " />
+                            <input id="yacht1howManyDaysInput" type="text" class="form-control col-6" placeholder=" " />
                         </div>
                     </div>
                     <div class="col-6">
-                        <div class="form-group form-inline">
+                        <div class=" form-inline">
                             <label class="col-6">Crew members</label>
-                            <input type="text" class="form-control col-6" placeholder="Type how many crew members " />
+                            <input id="yacht1howManyCrewMembersInput" type="text" class="form-control col-6" placeholder="Type how many crew members " />
                         </div>
 
-                        <div class="form-group form-inline">
+                        <div class=" form-inline">
                             <label class="col-6">Fee free crew members</label>
-                            <input type="text" class="form-control col-6" placeholder="Cpt + others " />
+                            <input id="yacht1howManyFeeFreeCrewMembersInput" type="text" class="form-control col-6" placeholder="Cpt + others " />
                         </div>
                     </div>
                 </div>
                 <hr />
                 <div class="">
-                    <div class="form-group form-inline">
+                    <div class=" form-inline">
                         <label class="col-3">Per week</label>
                         <label class="col-3">Per day</label>
                         <label class="col-3"></label>
                         <label class="col-3">Per person</label>
                     </div>
 
-                    <div class="form-group form-inline">
-                        <input type="text" class="form-control col-3" placeholder="" />
-                        <input type="text" class="form-control col-3" placeholder="" />
+                    <div class=" form-inline">
+                        <input id="yacht1alimemtationPerWeekInput" onchange="lockAlimentationPerWeek()" type="text" class="form-control col-3" placeholder="" />
+                        <input id="yacht1alimemtationPerDayInput" onchange="lockAlimentationPerDay()" type="text" class="form-control col-3" placeholder="" />
                         <label class="col-3">Alimentation</label>
-                        <input type="text" class="form-control col-3" placeholder="" />
+                        <input id="yacht1alimemtationPerPersonInput" onchange="lockAlimentationPerPerson()" type="text" class="form-control col-3" placeholder="" />
                     </div>
-                    <div class="form-group form-inline">
-                        <input type="text" class="form-control col-3" placeholder="" />
-                        <input type="text" class="form-control col-3" placeholder="" />
+                    <div class=" form-inline">
+                        <input id="yacht1fuelFeePerWeekInput" onchange="calculate()" type="text" class="form-control col-3" placeholder="" />
+                        <input id="yacht1fuelFeePerDayInput" onchange="calculate()" type="text" class="form-control col-3" placeholder="" />
                         <label class="col-3">Fuel fee</label>
-                        <input type="text" class="form-control col-3" placeholder="" />
+                        <input id="yacht1fuelFeePerPersonInput" onchange="calculate()" type="text" class="form-control col-3" placeholder="" />
                     </div>
-                    <div class="form-group form-inline">
-                        <input type="text" class="form-control col-3" placeholder="" />
-                        <input type="text" class="form-control col-3" placeholder="" />
+                    <div class=" form-inline">
+                        <input id="yacht1captainSalaryWeekInput" onchange="calculate()" type="text" class="form-control col-3" placeholder="" />
+                        <input id="yacht1captainSalaryPerDayInput" type="text" class="form-control col-3" placeholder="" />
                         <label class="col-3">Captain salary</label>
-                        <input type="text" class="form-control col-3" placeholder="" />
+                        <input id="yacht1captainSalaryPerPersonInput" type="text" class="form-control col-3" placeholder="" />
                     </div>
-                    <div class="form-group form-inline">
-                        <input type="text" class="form-control col-3" placeholder="" readonly />
-                        <input type="text" class="form-control col-3" placeholder="" readonly />
+                    <div class=" form-inline">
+                        <input id="yacht1sumPerWeekInput" type="text" class="form-control col-3" placeholder="" readonly />
+                        <input id="yacht1sumPerDayInput" type="text" class="form-control col-3" placeholder="" readonly />
                         <label class="col-3">SUM</label>
-                        <input type="text" class="form-control col-3" placeholder="" readonly />
+                        <input id="yacht1sumPerPersonInput" type="text" class="form-control col-3" placeholder="" readonly />
                     </div>
-                    <div class="form-group form-inline">
+                    <div class=" form-inline">
                         <input type="text" class="form-control col-3" placeholder="" />
                         <input type="text" class="form-control col-3" placeholder="" />
                         <label class="col-3">Bail</label>
                         <input type="text" class="form-control col-3" placeholder="" />
                     </div>
-                    <div class="form-group form-inline">
+                    <div class=" form-inline">
                         <input type="text" class="form-control col-3" placeholder="" readonly />
                         <input type="text" class="form-control col-3" placeholder="" readonly />
                         <label class="col-3">Sum with bail</label>
@@ -75,7 +75,7 @@
             </div>
         </td>
         <td>
-            <div class="col-12 form-inline">
+            <div id="yacht2" class="col-12 form-inline">
                 <div class="form-inline">
                     <div class="col-6">
                         <div class="form-group form-inline">
@@ -147,86 +147,87 @@
                     </div>
                 </div>
 
+            </div>
+        </td>
+        <td>
+            <div id="yacht3" class="col-12 form-inline">
+                <div class="form-inline">
+                    <div class="col-6">
+                        <div class="form-group form-inline">
+                            <label class="col-6">Yacht name</label>
+                            <input type="text" class="form-control col-6" placeholder="Enter yacht name" />
+                        </div>
+
+                        <div class="form-group form-inline">
+                            <label class="col-6">How many days?</label>
+                            <input type="text" class="form-control col-6" placeholder=" " />
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group form-inline">
+                            <label class="col-6">Crew members</label>
+                            <input type="text" class="form-control col-6" placeholder="Type how many crew members " />
+                        </div>
+
+                        <div class="form-group form-inline">
+                            <label class="col-6">Fee free crew members</label>
+                            <input type="text" class="form-control col-6" placeholder="Cpt + others " />
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="">
+                    <div class="form-group form-inline">
+                        <label class="col-3">Per week</label>
+                        <label class="col-3">Per day</label>
+                        <label class="col-3"></label>
+                        <label class="col-3">Per person</label>
+                    </div>
+
+                    <div class="form-group form-inline">
+                        <input type="text" class="form-control col-3" placeholder="" />
+                        <input type="text" class="form-control col-3" placeholder="" />
+                        <label class="col-3">Alimentation</label>
+                        <input type="text" class="form-control col-3" placeholder="" />
+                    </div>
+                    <div class="form-group form-inline">
+                        <input type="text" class="form-control col-3" placeholder="" />
+                        <input type="text" class="form-control col-3" placeholder="" />
+                        <label class="col-3">Fuel fee</label>
+                        <input type="text" class="form-control col-3" placeholder="" />
+                    </div>
+                    <div class="form-group form-inline">
+                        <input type="text" class="form-control col-3" placeholder="" />
+                        <input type="text" class="form-control col-3" placeholder="" />
+                        <label class="col-3">Captain salary</label>
+                        <input type="text" class="form-control col-3" placeholder="" />
+                    </div>
+                    <div class="form-group form-inline">
+                        <input type="text" class="form-control col-3" placeholder="" readonly />
+                        <input type="text" class="form-control col-3" placeholder="" readonly />
+                        <label class="col-3">SUM</label>
+                        <input type="text" class="form-control col-3" placeholder="" readonly />
+                    </div>
+                    <div class="form-group form-inline">
+                        <input type="text" class="form-control col-3" placeholder="" />
+                        <input type="text" class="form-control col-3" placeholder="" />
+                        <label class="col-3">Bail</label>
+                        <input type="text" class="form-control col-3" placeholder="" />
+                    </div>
+                    <div class="form-group form-inline">
+                        <input type="text" class="form-control col-3" placeholder="" readonly />
+                        <input type="text" class="form-control col-3" placeholder="" readonly />
+                        <label class="col-3">Sum with bail</label>
+                        <input type="text" class="form-control col-3" placeholder="" readonly />
+                    </div>
+                </div>
             </div>
         </td>
     </tr>
     <tr>
+
         <td>
-            <div class="col-12 form-inline">
-                <div class="form-inline">
-                    <div class="col-6">
-                        <div class="form-group form-inline">
-                            <label class="col-6">Yacht name</label>
-                            <input type="text" class="form-control col-6" placeholder="Enter yacht name" />
-                        </div>
-
-                        <div class="form-group form-inline">
-                            <label class="col-6">How many days?</label>
-                            <input type="text" class="form-control col-6" placeholder=" " />
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="form-group form-inline">
-                            <label class="col-6">Crew members</label>
-                            <input type="text" class="form-control col-6" placeholder="Type how many crew members " />
-                        </div>
-
-                        <div class="form-group form-inline">
-                            <label class="col-6">Fee free crew members</label>
-                            <input type="text" class="form-control col-6" placeholder="Cpt + others " />
-                        </div>
-                    </div>
-                </div>
-                <hr />
-                <div class="">
-                    <div class="form-group form-inline">
-                        <label class="col-3">Per week</label>
-                        <label class="col-3">Per day</label>
-                        <label class="col-3"></label>
-                        <label class="col-3">Per person</label>
-                    </div>
-
-                    <div class="form-group form-inline">
-                        <input type="text" class="form-control col-3" placeholder="" />
-                        <input type="text" class="form-control col-3" placeholder="" />
-                        <label class="col-3">Alimentation</label>
-                        <input type="text" class="form-control col-3" placeholder="" />
-                    </div>
-                    <div class="form-group form-inline">
-                        <input type="text" class="form-control col-3" placeholder="" />
-                        <input type="text" class="form-control col-3" placeholder="" />
-                        <label class="col-3">Fuel fee</label>
-                        <input type="text" class="form-control col-3" placeholder="" />
-                    </div>
-                    <div class="form-group form-inline">
-                        <input type="text" class="form-control col-3" placeholder="" />
-                        <input type="text" class="form-control col-3" placeholder="" />
-                        <label class="col-3">Captain salary</label>
-                        <input type="text" class="form-control col-3" placeholder="" />
-                    </div>
-                    <div class="form-group form-inline">
-                        <input type="text" class="form-control col-3" placeholder="" readonly />
-                        <input type="text" class="form-control col-3" placeholder="" readonly />
-                        <label class="col-3">SUM</label>
-                        <input type="text" class="form-control col-3" placeholder="" readonly />
-                    </div>
-                    <div class="form-group form-inline">
-                        <input type="text" class="form-control col-3" placeholder="" />
-                        <input type="text" class="form-control col-3" placeholder="" />
-                        <label class="col-3">Bail</label>
-                        <input type="text" class="form-control col-3" placeholder="" />
-                    </div>
-                    <div class="form-group form-inline">
-                        <input type="text" class="form-control col-3" placeholder="" readonly />
-                        <input type="text" class="form-control col-3" placeholder="" readonly />
-                        <label class="col-3">Sum with bail</label>
-                        <input type="text" class="form-control col-3" placeholder="" readonly />
-                    </div>
-                </div>
-            </div>
-        </td>
-        <td>
-            <div class="col-12 form-inline">
+            <div id="yacht4" class="col-12 form-inline">
                 <div class="form-inline">
                     <div class="col-6">
                         <div class="form-group form-inline">
